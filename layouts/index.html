@@ -5,21 +5,45 @@
 	{{ template "_internal/google_analytics.html" . }}
 	</head>
 	<body>
-		<div class="container">
 		  {{ partial "header.html" . }}
-			<div class="main">
-				<ul id="og-grid" class="og-grid">
-					{{ range .Data.Pages }}
-					<li>
-						<a href="{{.Params.project_url}}" data-largesrc="{{.Params.image}}" data-title="{{.Title}}" data-description="{{.Params.description }}">
-							<img src="{{.Params.thumb}}" alt="{{.Title}}"/>
-						</a>
-					</li>
+        <div class="container">
+            <div class="row">
+                <div class="main">
+                    <ul id="og-grid" class="og-grid">
+						{{ range .Data.Pages }}
+                        <li>
+                            <a href="" data-largesrc="{{.Params.image}}"
+                               data-post-title="{{.Title}}"
+                               data-post-status="{{.Params.description }}"
+                               data-post-description="{{.Params.description }}"
+                               data-post-tag="keyboard, switch , access">
+                                <div class="custom-keygan">
+                                    <img src="{{.Params.image}}" alt="{{.Title}}"/>
+                                    <span><i class="fa fa-dropbox" aria-hidden="true"></i></span>
+                                    <div class="custom-text-part">
+                                        <h3>{{.Title}}</h3>
+                                        <p>{{.Params.description }}
+                                        </p>
+                                        <div class="custom-social-part">
+                                            <div class="social-left">
+                                                <i class="fa fa-cloud-download" aria-hidden="true"></i>
+                                            </div>
+                                            <div class="social-right">
+                                                <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+                                                <i class="fa fa-share-alt" aria-hidden="true"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
 					{{ end }}
-				</ul>
-				{{ partial "footer.html" . }}
-			</div>
-		</div>
+					</ul>
+                </div>
+            </div>
+        </div>
+    </div>
+		{{ partial "footer.html" . }}
 		{{ partial "scripts.html" . }}
-	</body>
+ </body>
 </html>
